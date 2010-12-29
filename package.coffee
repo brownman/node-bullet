@@ -1,0 +1,43 @@
+{
+  name: 'bullet'
+  description: '''"Bullet" physics for node.js'''
+  
+  keywords: ['bullet', 'physics', 'dynamics', 'engine', 'binding', 'wrapper']
+  
+  version: '0.1.0'
+  
+  author: 'Feisty Studios <node-bullet@feistystudios.com> (http://feistystudios.com/)'
+  
+  licenses: [
+    {
+      type: 'FEISTY'
+      url: 'http://github.com/feisty/license/LICENSE'
+    }
+  ]
+  
+  contributors: [
+    'Nicholas Kinsey <nicholas.kinsey@feistystudios.com>'
+  ]
+  
+  repository:
+    type: 'git'
+    url: 'http://github.com/feisty/node-bullet.git'
+    private: 'git@github.com:feisty/node-bullet.git'
+    web: 'http://github.com/feisty/node-bullet'
+  
+  bugs:
+    mail: 'node-bullet@feistystudios.com'
+    web: 'http://github.com/feisty/node-bullet/issues'
+    
+  directories:
+    lib: './lib'
+    doc: './doc'
+    
+  main: './lib/bullet.coffee'
+  
+  dependencies:
+    'coffee-script': '= 1.0.0'
+    
+  engines:
+    node: '= 0.3.2'
+}
