@@ -3,22 +3,22 @@ Bullet = require '../index'
 # bullet = new Bullet.Bullet
 # console.log bullet
 
-defaultCollisionConfiguration = new Bullet.DefaultCollisionConfiguration
-console.log 'defaultCollisionConfiguration', defaultCollisionConfiguration
+# defaultCollisionConfiguration = new Bullet.DefaultCollisionConfiguration
+# console.log 'defaultCollisionConfiguration', defaultCollisionConfiguration
+# 
+# collisionDispatcher = new Bullet.CollisionDispatcher defaultCollisionConfiguration
+# console.log 'collisionDispatcher', collisionDispatcher
+# 
+# dbvtBroadphase = new Bullet.DbvtBroadphase
+# console.log 'dbvtBroadphase', dbvtBroadphase
+# 
+# sequentialImpulseConstraintSolver = new Bullet.SequentialImpulseConstraintSolver
+# console.log 'sequentialImpulseConstraintSolver', sequentialImpulseConstraintSolver
 
-collisionDispatcher = new Bullet.CollisionDispatcher defaultCollisionConfiguration
-console.log 'collisionDispatcher', collisionDispatcher
-
-dbvtBroadphase = new Bullet.DbvtBroadphase
-console.log 'dbvtBroadphase', dbvtBroadphase
-
-sequentialImpulseConstraintSolver = new Bullet.SequentialImpulseConstraintSolver
-console.log 'sequentialImpulseConstraintSolver', sequentialImpulseConstraintSolver
-
-discreteDynamicsWorld = new Bullet.DiscreteDynamicsWorld collisionDispatcher, dbvtBroadphase, sequentialImpulseConstraintSolver, defaultCollisionConfiguration
+discreteDynamicsWorld = new Bullet.DiscreteDynamicsWorld #collisionDispatcher, dbvtBroadphase, sequentialImpulseConstraintSolver, defaultCollisionConfiguration
 console.log 'discreteDynamicsWorld', discreteDynamicsWorld
 
-discreteDynamicsWorld.setGravity()
+# discreteDynamicsWorld.setGravity()
 
 # # boxShape = new Bullet.BoxShape
 # # console.log 'boxShape', boxShape

@@ -28,19 +28,19 @@ Handle<Value>
 DiscreteDynamicsWorld::New(const Arguments &args) {
   HandleScope scope;
   
-  Local<Object> collisionDispatcherHandle = args[0]->ToObject();
-  CollisionDispatcher* collisionDispatcher = ObjectWrap::Unwrap<CollisionDispatcher>(collisionDispatcherHandle);
+  // Local<Object> collisionDispatcherHandle = args[0]->ToObject();
+  // CollisionDispatcher* collisionDispatcher = ObjectWrap::Unwrap<CollisionDispatcher>(collisionDispatcherHandle);
+  // 
+  // Local<Object> dbvtBroadphaseHandle = args[1]->ToObject();
+  // DbvtBroadphase* dbvtBroadphase = ObjectWrap::Unwrap<DbvtBroadphase>(dbvtBroadphaseHandle);
+  // 
+  // Local<Object> sequentialImpulseConstraintSolverHandle = args[2]->ToObject();
+  // SequentialImpulseConstraintSolver* sequentialImpulseConstraintSolver = ObjectWrap::Unwrap<SequentialImpulseConstraintSolver>(sequentialImpulseConstraintSolverHandle);
+  // 
+  // Local<Object> defaultCollisionConfigurationHandle = args[3]->ToObject();
+  // DefaultCollisionConfiguration* defaultCollisionConfiguration = ObjectWrap::Unwrap<DefaultCollisionConfiguration>(defaultCollisionConfigurationHandle);
   
-  Local<Object> dbvtBroadphaseHandle = args[1]->ToObject();
-  DbvtBroadphase* dbvtBroadphase = ObjectWrap::Unwrap<DbvtBroadphase>(dbvtBroadphaseHandle);
-  
-  Local<Object> sequentialImpulseConstraintSolverHandle = args[2]->ToObject();
-  SequentialImpulseConstraintSolver* sequentialImpulseConstraintSolver = ObjectWrap::Unwrap<SequentialImpulseConstraintSolver>(sequentialImpulseConstraintSolverHandle);
-  
-  Local<Object> defaultCollisionConfigurationHandle = args[3]->ToObject();
-  DefaultCollisionConfiguration* defaultCollisionConfiguration = ObjectWrap::Unwrap<DefaultCollisionConfiguration>(defaultCollisionConfigurationHandle);
-  
-  DiscreteDynamicsWorld* discreteDynamicsWorld = new DiscreteDynamicsWorld(collisionDispatcher, dbvtBroadphase, sequentialImpulseConstraintSolver, defaultCollisionConfiguration);
+  DiscreteDynamicsWorld* discreteDynamicsWorld = new DiscreteDynamicsWorld(/*collisionDispatcher, dbvtBroadphase, sequentialImpulseConstraintSolver, defaultCollisionConfiguration*/);
   discreteDynamicsWorld->Wrap(args.This());
   
   return scope.Close(args.This());
@@ -99,7 +99,7 @@ DiscreteDynamicsWorld::StepSimulation(const Arguments &args) {
   return scope.Close(Undefined());
 }
 
-DiscreteDynamicsWorld::DiscreteDynamicsWorld(CollisionDispatcher* collisionDispatcher, DbvtBroadphase* dbvtBroadphase, SequentialImpulseConstraintSolver* sequentialImpulseConstraintSolver, DefaultCollisionConfiguration* defaultCollisionConfiguration): ObjectWrap() {
+DiscreteDynamicsWorld::DiscreteDynamicsWorld(/*CollisionDispatcher* collisionDispatcher, DbvtBroadphase* dbvtBroadphase, SequentialImpulseConstraintSolver* sequentialImpulseConstraintSolver, DefaultCollisionConfiguration* defaultCollisionConfiguration*/): ObjectWrap() {
   // TODO Create and use the actual binded objects instead of this hack
   
   btDefaultCollisionConfiguration* collisionConfiguration = new btDefaultCollisionConfiguration();
