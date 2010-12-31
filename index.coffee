@@ -1,1 +1,1 @@
-module.exports = require './lib/bullet.coffee'
+module.exports = require './lib/bullet'
