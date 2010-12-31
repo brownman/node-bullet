@@ -48,14 +48,18 @@ DiscreteDynamicsWorld::New(const Arguments &args) {
 
 Handle<Value>
 DiscreteDynamicsWorld::SetGravity(const Arguments &args) {
+  HandleScope scope;
+  
   DiscreteDynamicsWorld* discreteDynamicsWorld = ObjectWrap::Unwrap<DiscreteDynamicsWorld>(args.This());
   discreteDynamicsWorld->_btDiscreteDynamicsWorld->setGravity(btVector3(0, -10, 0));
   
-  return Undefined();
+  return scope.Close(Undefined());
 }
 
 Handle<Value>
 DiscreteDynamicsWorld::AddRigidBody(const Arguments &args) {
+  HandleScope scope;
+  
   DiscreteDynamicsWorld* discreteDynamicsWorld = ObjectWrap::Unwrap<DiscreteDynamicsWorld>(args.This());
   
   Local<Object> rigidBodyHandle = args[0]->ToObject();
@@ -63,11 +67,13 @@ DiscreteDynamicsWorld::AddRigidBody(const Arguments &args) {
   
   discreteDynamicsWorld->_btDiscreteDynamicsWorld->addRigidBody(rigidBody->_btRigidBody);
   
-  return Undefined();
+  return scope.Close(Undefined());
 }
 
 Handle<Value>
 DiscreteDynamicsWorld::StepSimulation(const Arguments &args) {
+  HandleScope scope;
+  
   DiscreteDynamicsWorld* discreteDynamicsWorld = ObjectWrap::Unwrap<DiscreteDynamicsWorld>(args.This());
 
   discreteDynamicsWorld->_btDiscreteDynamicsWorld->stepSimulation(100.0);
@@ -90,7 +96,7 @@ DiscreteDynamicsWorld::StepSimulation(const Arguments &args) {
   //   printf("world pos = %f,%f,%f\n",float(trans.getOrigin().getX()),float(trans.getOrigin().getY()),float(trans.getOrigin().getZ()));
   // }
   
-  return Undefined();
+  return scope.Close(Undefined());
 }
 
 DiscreteDynamicsWorld::DiscreteDynamicsWorld(CollisionDispatcher* collisionDispatcher, DbvtBroadphase* dbvtBroadphase, SequentialImpulseConstraintSolver* sequentialImpulseConstraintSolver, DefaultCollisionConfiguration* defaultCollisionConfiguration): ObjectWrap() {
@@ -107,7 +113,7 @@ DiscreteDynamicsWorld::DiscreteDynamicsWorld(CollisionDispatcher* collisionDispa
 }
 
 DiscreteDynamicsWorld::~DiscreteDynamicsWorld() {
-  if (_btDiscreteDynamicsWorld) {
-    free(_btDiscreteDynamicsWorld);
-  }
+  // if (_btDiscreteDynamicsWorld) {
+  //   free(_btDiscreteDynamicsWorld);
+  // }
 }
