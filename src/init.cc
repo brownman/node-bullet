@@ -1,13 +1,13 @@
-#include  "btBulletDynamicsCommon.h"
+// #include  "btBulletDynamicsCommon.h"
 
-#include "Bullet.h"
-#include "DefaultCollisionConfiguration.h"
-#include "CollisionDispatcher.h"
-#include "DbvtBroadphase.h"
-#include "SequentialImpulseConstraintSolver.h"
-#include "DiscreteDynamicsWorld.h"
-#include "BoxShape.h"
-#include "Transform.h"
+// #include "Bullet.h"
+// #include "DefaultCollisionConfiguration.h"
+// #include "CollisionDispatcher.h"
+// #include "DbvtBroadphase.h"
+// #include "SequentialImpulseConstraintSolver.h"
+// #include "DiscreteDynamicsWorld.h"
+// #include "BoxShape.h"
+// #include "Transform.h"
 #include "RigidBody.h"
 
 #include <v8.h>
@@ -17,17 +17,18 @@
 using namespace v8;
 using namespace node;
 
-extern "C" void
-init (Handle<Object> target) {
-    HandleScope scope;
-    
+extern "C" {
+  static void init (Handle<Object> target) {
     // Bullet::Initialize(target);
     // DefaultCollisionConfiguration::Initialize(target);
     // CollisionDispatcher::Initialize(target);
     // DbvtBroadphase::Initialize(target);
     // SequentialImpulseConstraintSolver::Initialize(target);
-    DiscreteDynamicsWorld::Initialize(target);
+    // DiscreteDynamicsWorld::Initialize(target);
     // BoxShape::Initialize(target);
     // Transform::Initialize(target);
     RigidBody::Initialize(target);
+  }
+  
+  NODE_MODULE(bullet, init);
 }
