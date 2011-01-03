@@ -37,7 +37,7 @@ fps = 0
 setInterval(->
   fps++
   discreteDynamicsWorld.stepSimulation()
-, 100)
+, 0)
 
 setInterval(->
   console.log fps

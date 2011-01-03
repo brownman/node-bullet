@@ -28,7 +28,7 @@ RigidBody::New(const Arguments &args) {
 RigidBody::RigidBody(): ObjectWrap() {
   btTransform transform;
   transform.setIdentity();
-  transform.setOrigin(btVector3(0, 0, 0));
+  transform.setOrigin(btVector3((float)rand()/(float)RAND_MAX*10.0, (float)rand()/(float)RAND_MAX*10.0, (float)rand()/(float)RAND_MAX*10.0));
   
   btScalar mass(1.0);
   btVector3 localInertia(0, 0, 0);
@@ -41,7 +41,8 @@ RigidBody::RigidBody(): ObjectWrap() {
 }
 
 RigidBody::~RigidBody() {
-  if (_btRigidBody) {
-    free(_btRigidBody);
-  }
+  // if (_btRigidBody) {
+  //   free(_btRigidBody);
+  //   _btRigidbody = NULL;
+  // }
 }

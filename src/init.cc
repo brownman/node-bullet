@@ -21,13 +21,13 @@ extern "C" void
 init (Handle<Object> target) {
     HandleScope scope;
     
-    Bullet::Initialize(target);
-    DefaultCollisionConfiguration::Initialize(target);
-    CollisionDispatcher::Initialize(target);
-    DbvtBroadphase::Initialize(target);
-    SequentialImpulseConstraintSolver::Initialize(target);
+    // Bullet::Initialize(target);
+    // DefaultCollisionConfiguration::Initialize(target);
+    // CollisionDispatcher::Initialize(target);
+    // DbvtBroadphase::Initialize(target);
+    // SequentialImpulseConstraintSolver::Initialize(target);
     DiscreteDynamicsWorld::Initialize(target);
-    BoxShape::Initialize(target);
-    Transform::Initialize(target);
+    // BoxShape::Initialize(target);
+    // Transform::Initialize(target);
     RigidBody::Initialize(target);
 }
