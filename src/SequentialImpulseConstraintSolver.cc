@@ -31,6 +31,6 @@ SequentialImpulseConstraintSolver::SequentialImpulseConstraintSolver(): ObjectWr
 
 SequentialImpulseConstraintSolver::~SequentialImpulseConstraintSolver() {
   if (_btSequentialImpulseConstraintSolver) {
-    delete _btSequentialImpulseConstraintSolver;
+    //delete _btSequentialImpulseConstraintSolver;
   }
 }

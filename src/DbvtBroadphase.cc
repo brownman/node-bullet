@@ -31,6 +31,6 @@ DbvtBroadphase::DbvtBroadphase(): ObjectWrap() {
 
 DbvtBroadphase::~DbvtBroadphase() {
   if (_btDbvtBroadphase) {
-    delete _btDbvtBroadphase;
+    //delete _btDbvtBroadphase;
   }
 }

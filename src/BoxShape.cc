@@ -31,6 +31,6 @@ BoxShape::BoxShape(): ObjectWrap() {
 
 BoxShape::~BoxShape() {
   if (_btBoxShape) {
-    free(_btBoxShape);
+    delete _btBoxShape;
   }
 }

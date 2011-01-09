@@ -22,24 +22,22 @@ discreteDynamicsWorld.setGravity()
 
 # # boxShape = new Bullet.BoxShape
 # # console.log 'boxShape', boxShape
-# 
+
 # # transform = new Bullet.Transform
 # # console.log 'transform', transform
 
-for i in [0...1000]
+for i in [0...1]
   rigidBody = new Bullet.RigidBody
   console.log 'rigidBody', rigidBody
 
 discreteDynamicsWorld.addRigidBody rigidBody
-
-gc()
 
 fps = 0
 
 tick = ->
   fps++
   discreteDynamicsWorld.stepSimulation()
-  gc()
+  
   process.nextTick tick
 
 process.nextTick ->

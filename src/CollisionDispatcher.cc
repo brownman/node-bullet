@@ -34,6 +34,6 @@ CollisionDispatcher::CollisionDispatcher(DefaultCollisionConfiguration* defaultC
 
 CollisionDispatcher::~CollisionDispatcher() {
   if (_btCollisionDispatcher) {
-    delete _btCollisionDispatcher;
+    //delete _btCollisionDispatcher;
   }
 }

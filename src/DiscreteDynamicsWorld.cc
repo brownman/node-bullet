@@ -50,6 +50,12 @@ Handle<Value>
 DiscreteDynamicsWorld::SetGravity(const Arguments &args) {
   HandleScope scope;
   
+  // const btScalar x = ObjectWrap::Unwrap<btScalar>(args[0]->ToNumber());
+  // const btScalar y = ObjectWrap::Unwrap<btScalar>(args[1]->ToNumber());
+  // const btScalar z = ObjectWrap::Unwrap<btScalar>(args[2]->ToNumber());
+  
+  // btVector3 vector(, ObjectWrap::Unwrap<btScalar>(args[1]->ToNumber()), ObjectWrap::Unwrap<btScalar>(args[2]->ToNumber()));
+  
   DiscreteDynamicsWorld* discreteDynamicsWorld = ObjectWrap::Unwrap<DiscreteDynamicsWorld>(args.This());
   discreteDynamicsWorld->_btDiscreteDynamicsWorld->setGravity(btVector3(0, -10, 0));
   
@@ -96,6 +102,6 @@ DiscreteDynamicsWorld::DiscreteDynamicsWorld(CollisionDispatcher* collisionDispa
 
 DiscreteDynamicsWorld::~DiscreteDynamicsWorld() {
   if (_btDiscreteDynamicsWorld) {
-    delete _btDiscreteDynamicsWorld;
+    //delete _btDiscreteDynamicsWorld;
   }
 }
