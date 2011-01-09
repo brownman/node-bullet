@@ -37,7 +37,6 @@ fps = 0
 tick = ->
   fps++
   discreteDynamicsWorld.stepSimulation()
-  
   process.nextTick tick
 
 process.nextTick ->
