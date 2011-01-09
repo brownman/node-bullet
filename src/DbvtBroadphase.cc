@@ -26,7 +26,11 @@ DbvtBroadphase::New(const Arguments &args) {
 }
 
 DbvtBroadphase::DbvtBroadphase(): ObjectWrap() {
+  _btDbvtBroadphase = new btDbvtBroadphase();
 }
 
 DbvtBroadphase::~DbvtBroadphase() {
+  if (_btDbvtBroadphase) {
+    delete _btDbvtBroadphase;
+  }
 }

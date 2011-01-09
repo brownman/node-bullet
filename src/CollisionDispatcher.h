@@ -7,6 +7,8 @@
 
 #include "DefaultCollisionConfiguration.h"
 
+#include "btBulletDynamicsCommon.h"
+
 using namespace v8;
 using namespace node;
 
@@ -18,6 +20,8 @@ class CollisionDispatcher: public node::ObjectWrap {
     static Handle<Value> New(const Arguments &args);
     
     CollisionDispatcher(DefaultCollisionConfiguration* defaultCollisionConfiguration);
+    
+    btCollisionDispatcher* _btCollisionDispatcher;
 
   private:
     ~CollisionDispatcher();

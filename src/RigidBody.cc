@@ -13,8 +13,6 @@ RigidBody::Initialize(Handle<Object> target) {
   Local<ObjectTemplate> proto = constructor->PrototypeTemplate();
 
   target->Set(String::NewSymbol("RigidBody"), constructor->GetFunction());
-  
-  scope.Close();
 }
 
 Handle<Value>
@@ -27,7 +25,7 @@ RigidBody::New(const Arguments &args) {
   return scope.Close(args.This());
 }
 
-RigidBody::RigidBody(): ObjectWrap() {
+RigidBody::RigidBody(): ObjectWrap() {  
   btTransform transform;
   transform.setIdentity();
   transform.setOrigin(btVector3((float)rand()/(float)RAND_MAX*1000.0, (float)rand()/(float)RAND_MAX*1000.0, (float)rand()/(float)RAND_MAX*1000.0));
@@ -44,8 +42,7 @@ RigidBody::RigidBody(): ObjectWrap() {
 }
 
 RigidBody::~RigidBody() {
-  // if (_btRigidBody) {
-  //   free(_btRigidBody);
-  //   _btRigidbody = NULL;
-  // }
+  if (_btRigidBody) {
+    //delete _btRigidBody;
+  }
 }

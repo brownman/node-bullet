@@ -11,7 +11,7 @@
   licenses: [
     {
       type: 'FEISTY'
-      url: 'http://github.com/feisty/license/LICENSE'
+      url: 'http://github.com/feisty/license/raw/master/LICENSE'
     }
   ]
   
@@ -36,8 +36,8 @@
   main: './lib/bullet.coffee'
   
   dependencies:
-    'coffee-script': '= 1.0.0'
+    'coffee-script': '>= 1.0.0'
     
   engines:
-    node: '= 0.3.2'
+    node: '>= 0.3.3'
 }

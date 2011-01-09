@@ -1,24 +1,24 @@
 Bullet = require '../index'
-# 
-# bullet = new Bullet.Bullet
-# console.log bullet
 
-# defaultCollisionConfiguration = new Bullet.DefaultCollisionConfiguration
-# console.log 'defaultCollisionConfiguration', defaultCollisionConfiguration
-# # 
-# collisionDispatcher = new Bullet.CollisionDispatcher defaultCollisionConfiguration
-# console.log 'collisionDispatcher', collisionDispatcher
-# # 
-# dbvtBroadphase = new Bullet.DbvtBroadphase
-# console.log 'dbvtBroadphase', dbvtBroadphase
-# # 
-# sequentialImpulseConstraintSolver = new Bullet.SequentialImpulseConstraintSolver
-# console.log 'sequentialImpulseConstraintSolver', sequentialImpulseConstraintSolver
+bullet = new Bullet.Bullet
+console.log 'bullet', bullet
 
-# discreteDynamicsWorld = new Bullet.DiscreteDynamicsWorld #collisionDispatcher, dbvtBroadphase, sequentialImpulseConstraintSolver, defaultCollisionConfiguration
-# console.log 'discreteDynamicsWorld', discreteDynamicsWorld
+defaultCollisionConfiguration = new Bullet.DefaultCollisionConfiguration
+console.log 'defaultCollisionConfiguration', defaultCollisionConfiguration
 
-# discreteDynamicsWorld.setGravity()
+collisionDispatcher = new Bullet.CollisionDispatcher defaultCollisionConfiguration
+console.log 'collisionDispatcher', collisionDispatcher
+
+dbvtBroadphase = new Bullet.DbvtBroadphase
+console.log 'dbvtBroadphase', dbvtBroadphase
+
+sequentialImpulseConstraintSolver = new Bullet.SequentialImpulseConstraintSolver
+console.log 'sequentialImpulseConstraintSolver', sequentialImpulseConstraintSolver
+
+discreteDynamicsWorld = new Bullet.DiscreteDynamicsWorld collisionDispatcher, dbvtBroadphase, sequentialImpulseConstraintSolver, defaultCollisionConfiguration
+console.log 'discreteDynamicsWorld', discreteDynamicsWorld
+
+discreteDynamicsWorld.setGravity()
 
 # # boxShape = new Bullet.BoxShape
 # # console.log 'boxShape', boxShape
@@ -26,22 +26,26 @@ Bullet = require '../index'
 # # transform = new Bullet.Transform
 # # console.log 'transform', transform
 
-for i in [0..1]
+for i in [0...1000]
   rigidBody = new Bullet.RigidBody
   console.log 'rigidBody', rigidBody
 
-# discreteDynamicsWorld.addRigidBody rigidBody
-
-# fps = 0
+discreteDynamicsWorld.addRigidBody rigidBody
 
 gc()
 
-# setInterval(->
-#   fps++
-#   # discreteDynamicsWorld.stepSimulation()
-# , 0)
-# 
-# setInterval(->
-#   console.log fps
-#   fps = 0
-# , 1000)
+fps = 0
+
+tick = ->
+  fps++
+  discreteDynamicsWorld.stepSimulation()
+  gc()
+  process.nextTick tick
+
+process.nextTick ->
+  tick()
+
+setInterval(->
+  console.log fps
+  # fps = 0
+, 1000)

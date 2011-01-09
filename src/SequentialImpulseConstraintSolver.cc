@@ -26,7 +26,11 @@ SequentialImpulseConstraintSolver::New(const Arguments &args) {
 }
 
 SequentialImpulseConstraintSolver::SequentialImpulseConstraintSolver(): ObjectWrap() {
+  _btSequentialImpulseConstraintSolver = new btSequentialImpulseConstraintSolver();
 }
 
 SequentialImpulseConstraintSolver::~SequentialImpulseConstraintSolver() {
+  if (_btSequentialImpulseConstraintSolver) {
+    delete _btSequentialImpulseConstraintSolver;
+  }
 }

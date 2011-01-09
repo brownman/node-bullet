@@ -26,7 +26,11 @@ DefaultCollisionConfiguration::New(const Arguments &args) {
 }
 
 DefaultCollisionConfiguration::DefaultCollisionConfiguration(): ObjectWrap() {
+  _btDefaultCollisionConfiguration = new btDefaultCollisionConfiguration();
 }
 
 DefaultCollisionConfiguration::~DefaultCollisionConfiguration() {
+  if (_btDefaultCollisionConfiguration) {
+    delete _btDefaultCollisionConfiguration;
+  }
 }

@@ -5,6 +5,8 @@
 #include <node.h>
 #include <node_object_wrap.h>
 
+#include "btBulletDynamicsCommon.h"
+
 using namespace v8;
 using namespace node;
 
@@ -16,6 +18,8 @@ class SequentialImpulseConstraintSolver: public node::ObjectWrap {
     static Handle<Value> New(const Arguments &args);
     
     SequentialImpulseConstraintSolver();
+    
+    btSequentialImpulseConstraintSolver* _btSequentialImpulseConstraintSolver;
 
   private:
     ~SequentialImpulseConstraintSolver();
